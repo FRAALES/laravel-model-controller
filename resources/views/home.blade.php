@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.main-layout')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
 
-    <title>Controller ORM</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
+<div class="container">
     <h1>
-        Hello World
+        Best Movies Ever
     </h1>
+    <div class="card">
+        <div class="column">
+            <ul>
+                @foreach ($movies as $movie)
+                    <li>
+                        {{$movie -> id}}
+                        {{$movie -> title}}
+                        {{$movie -> original_title}}
+                        {{$movie -> nationality}}
+                        {{$movie -> date}}
+                        {{$movie -> vote}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
 
-</body>
+</div>
 
-</html>
+@endsection
